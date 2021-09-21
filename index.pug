@@ -1,0 +1,62 @@
+include variables/config.pug
+doctype html
+html(lang="sp")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Miguel Angel Castro Escamilla
+        link(rel="stylesheet", href="style.css")
+    body 
+    
+        //- Ciclos en pug array enumerado
+        ul
+            each data in lista 
+                li=data
+
+
+        //- Ciclos en pug objeto
+        dl
+            each value,id in obj
+                dt=id
+                dd=value
+
+
+        //- Condicionales
+        case nombre
+            when "Miguel": p=nombre
+            when "Jaime": h1=nombre
+            default: strong El usuario no existe 
+
+
+        //- Mostrar texto
+        strong Hola soy #{nombre} 
+        
+
+        //- Mostrar texto con HTML
+        strong Hola soy !{nombre} 
+
+
+        //- Mostrar texto con HTML en pug
+        p Hola #[strong(id="myNombre")=nombre] como estas
+
+
+        //- Condicional if else
+        #usuario
+            if usuario.tipo == "Jefe"
+                p(class=usuario.clase) el #[strong=usuario.tipo] es #[em=usuario.nombre]
+            else 
+                strong(class=usuario.clase) Usuario no permitido
+
+        //- Mixin o funciones de diseño
+        mixin caja({...arg})
+            div(class="caja" style="background:"+arg.color+";")=arg.nombre
+
+        +caja(ruta[0])
+        +caja(ruta[1])
+
+
+        //- Tomar las variables de pug y usarlas en javascript
+        h2 F12 mirar la consola 
+        script. 
+            console.log(!{JSON.stringify(obj)});

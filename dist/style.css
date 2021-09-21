@@ -1,0 +1,26 @@
+.Titulo1 {
+    background: orange;
+}
+
+.permiso {
+    background: #00ffc8;
+    color: black;
+    font-family: Arial;
+    display: inline-block;
+    padding: 2em;
+    border-radius: 1em;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+.caja {
+    width: 120px;
+    height: 120px;
+    background: orange;
+    color: white;
+    text-transform: uppercase;
+    font-family: Arial;
+    border-radius: 1em;
+    margin-bottom: 5px;
+    text-align: center;
+}
